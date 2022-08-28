@@ -3,7 +3,7 @@ import classes from "./Posts.module.scss";
 import PostsFilter from "./PostsFilter";
 import Post from "./Post";
 import { context } from "../../../store/main-context";
-import { API_QUERIES, PAGE_COUNT } from "../../../config";
+import { API_QUERIES, PAGE_COUNT, RESULTS_PER_PAGE } from "../../../config";
 import PaginationControl from "../pagination/PaginationControl";
 import unsavedHeartUrl from "../../../assets/img/unsaved-heart.svg";
 
@@ -22,9 +22,10 @@ const Posts = function () {
   }, [ctx.state.showPosts]);
 
   // Dynamically rendering posts from state.posts if ctx.state.activePage === "all" else state.faves.
-  const postsToRender = ctx.state[
-    `${ctx.state.activePage === "all" ? "posts" : "faves"}`
-  ]
+
+  const sourceToRenderFrom =
+    ctx.state[`${ctx.state.activePage === "all" ? "posts" : "faves"}`];
+  const postsToRender = sourceToRenderFrom
     .map((post) => (
       <Post
         key={post.objectID}
@@ -34,7 +35,7 @@ const Posts = function () {
         postObject={post}
       />
     ))
-    .slice(0, PAGE_COUNT);
+    .slice(0, RESULTS_PER_PAGE);
 
   return (
     <div className={classes.container}>

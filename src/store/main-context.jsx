@@ -91,7 +91,8 @@ export const ContextProvider = function (props) {
     if (
       post.story_title?.trim() &&
       post.created_at?.trim() &&
-      post.author?.trim()
+      post.author?.trim() &&
+      post.story_url?.trim()
     )
       return true;
     else false;
@@ -105,7 +106,7 @@ export const ContextProvider = function (props) {
       });
       return validPosts;
     } catch (error) {
-      console.log(error);
+      console.error(error);
     }
   };
 

@@ -55,9 +55,11 @@ const Post = function (props) {
     } else ctx.savePost(e, props.postObject);
   };
 
+  const redir = () => window.open(props.postObject.story_url);
+
   return (
     <Card className={classes.post}>
-      <div className={classes.content}>
+      <div className={classes.content} onClick={redir}>
         <div className={classes.date}>
           <img src={clockIconUrl} />
           <p>{`${dateTimeToRender} by ${props.author}`}</p>

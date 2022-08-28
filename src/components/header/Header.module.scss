@@ -1,5 +1,4 @@
 header {
-  top: 0;
   display: flex;
   justify-content: left;
   align-items: center;
@@ -9,8 +8,7 @@ header {
   box-shadow: 0 1px 4px 0 rgba(0, 21, 41, 0.12);
 
   img {
-    position: absolute;
-    left: 150px;
+    margin-left: 100px;
     height: auto;
     width: 212px;
   }
@@ -22,6 +20,20 @@ header {
       img {
         left: 75px;
         width: 200px;
+      }
+    }
+  }
+
+  @media (max-width: 600px) {
+    & {
+      position: fixed;
+      top: 0;
+      z-index: 1000;
+      opacity: 0.8;
+      backdrop-filter: blur(5px);
+
+      img {
+        opacity: 1;
       }
     }
   }
