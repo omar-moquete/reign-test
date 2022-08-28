@@ -1,0 +1,12 @@
+@mixin xl-padding {
+  padding: 0 150px;
+}
+
+@mixin clickable {
+  transition: all 0.1s ease;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.06);
+  }
+}

@@ -1,0 +1,37 @@
+@use "../../../variables";
+@use "../../../mixins";
+
+.post-selector--container {
+  position: absolute;
+  top: 184px;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .btn {
+    width: 98px;
+    height: 31px;
+    padding: 3px 16px 0 17px;
+    border-radius: 2px;
+    border: solid 1px variables.$inactive-color;
+    white-space: nowrap;
+    font-family: inherit;
+    font-size: 16px;
+    background-color: #fff;
+    @include mixins.clickable;
+  }
+
+  .btn--active {
+    border-color: variables.$active-color;
+    color: variables.$active-color;
+  }
+
+  @media (max-width: 600px) {
+    & {
+      top: 130px;
+    }
+  }
+}

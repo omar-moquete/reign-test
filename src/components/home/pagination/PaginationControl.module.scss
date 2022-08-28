@@ -1,0 +1,50 @@
+@use "../../../mixins";
+@use "../../../variables";
+
+.container {
+  grid-column: 1 / -1;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+  gap: 8px;
+  justify-self: center;
+  align-self: center;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+}
+
+.btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  border: solid 1px rgba(0, 0, 0, 0.15);
+  background-color: #fff;
+  cursor: pointer;
+  @include mixins.clickable;
+  &:hover {
+    outline: solid 1px variables.$btn-accent-color;
+    color: variables.$btn-accent-color;
+
+    svg {
+      stroke: variables.$btn-accent-color;
+    }
+  }
+}
+svg {
+  width: 18px;
+  height: 18px;
+  stroke-width: 1.5;
+  fill: none;
+}
+.btn--prev,
+.btn--next {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn--active {
+  background-color: variables.$btn-accent-color;
+  color: #fff;
+}
